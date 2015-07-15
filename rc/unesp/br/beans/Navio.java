@@ -27,29 +27,27 @@ public class Navio {
         this.navios = new ArrayList();
 
         for (k = 0; k < numeroNavios; k++){
-            x = gerador.nextInt(tamanhoTabuleiro);
-            y = gerador.nextInt(tamanhoTabuleiro);
+            x = gerador.nextInt(tamanhoTabuleiro-tamanhoNavio);
+            y = gerador.nextInt(tamanhoTabuleiro-tamanhoNavio);
             vertical = gerador.nextBoolean();
             if (vertical){
-                if (tamanhoTabuleiro - y < 3) k--;
-                else{
                     ponto1 = new Point(x,y);
                     ponto2 = new Point(x,y+1);
                     ponto3 = new Point(x,y+2);
-                    if ( !this.navios.contains(ponto1) || !this.navios.contains(ponto2) || !this.navios.contains(ponto3)){
+                    if ( !this.navios.contains(ponto1) && !this.navios.contains(ponto2) && !this.navios.contains(ponto3)){
                         this.navios.add(ponto1);this.navios.add(ponto2);this.navios.add(ponto3);
                     } else k--;
-                }
+               
             }else{
-                if (tamanhoTabuleiro - x < 3) k--;
-                else{
+                
+                
                     ponto1 = new Point(x,y);
                     ponto2 = new Point(x+1,y);
                     ponto3 = new Point(x+2,y);
-                    if ( !this.navios.contains(ponto1) || !this.navios.contains(ponto2) || !this.navios.contains(ponto3)){
+                    if ( !this.navios.contains(ponto1) && !this.navios.contains(ponto2) && !this.navios.contains(ponto3)){
                         this.navios.add(ponto1);this.navios.add(ponto2);this.navios.add(ponto3);
                     } else k--;
-                }
+                
             }
         }
         
